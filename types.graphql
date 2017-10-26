@@ -1,0 +1,8 @@
+type Location @model {
+  id: ID! @isUnique
+  name: String!
+  description: String
+  lng: Float
+  lat: Float
+  rating: Int
+}

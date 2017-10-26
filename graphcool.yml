@@ -1,0 +1,8 @@
+# Type definitions
+types: './types.graphql'
+
+# Functions
+
+# permissions
+permissions:
+- operation: Location.read
