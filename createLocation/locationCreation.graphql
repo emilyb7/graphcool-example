@@ -1,0 +1,8 @@
+type CreateLocationPayload {
+  id: ID!
+  name: String!
+}
+
+extend type Mutation {
+  createNewLocation(name: String!): CreateLocationPayload
+}
