@@ -2,7 +2,19 @@
 types: './types.graphql'
 
 # Functions
+functions:
+
+  # create location resolver
+  createLocation:
+    handler:
+      # Specify a managed function as a handler
+      code:
+        src: './createLocation/locationCreation.js'
+        # Define environment variables to be used in function
+    schema: './createLocation/locationCreation.graphql'
+    type: resolver
 
 # permissions
 permissions:
 - operation: Location.read
+- operation: Location.create
