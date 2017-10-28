@@ -11,6 +11,7 @@ import './index.css'
 
 import Location from './components/Location'
 import CreateLocation from './components/Create'
+import GetLocation from './components/GetLocation'
 
 const networkInterface = createNetworkInterface({
   // __SIMPLE_API_ENDPOINT__ looks similar to: `https://api.graph.cool/simple/v1/<PROJECT_ID>`
@@ -24,7 +25,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={ Location } />
-        <Route exactPath="/create" component={ CreateLocation } />
+        <Route exact path="/create" component={ CreateLocation } />
+        <Route path="/get-location/:id" component={ GetLocation } />
       </Switch>
     </Router>
   </ApolloProvider>,
