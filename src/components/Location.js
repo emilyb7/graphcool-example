@@ -3,7 +3,9 @@ import { gql, graphql, } from 'react-apollo'
 
 const Location = ({ data: { allLocations, }, }) => {
   if (allLocations && allLocations.length) {
-    return <div>{allLocations.map((loc, i) => <p key={ i }>{loc.name}</p>)}</div>
+    return (
+      <div>{allLocations.map((loc, i) => <p key={ loc.id }>{loc.name}</p>)}</div>
+    )
   } else return <div>hello</div>
 }
 
