@@ -1,8 +1,9 @@
 type CreateLocationPayload {
   id: ID!
   name: String!
+  mapsLink: String
 }
 
 extend type Mutation {
-  createNewLocation(name: String!): CreateLocationPayload
+  createNewLocation(name: String!, mapsLink: String): CreateLocationPayload
 }

@@ -1,30 +1,42 @@
 import { fromEvent, } from 'graphcool-lib'
 
 export default async event => {
+  const { name, mapsLink, } = event.data
+
+  const [ lat, lng, ] = mapsLink
+    .match(/@[\d.,-]+/)[0]
+    .split(/[@,]/g)
+    .slice(1, 3)
+    .map(Number)
   // you can use ES7 with async/await and even TypeScript in your functions :)
-  const query = `mutation createLocationMutation {
-    createLocation(name: "${event.data.name}") {
-      name
+  const query = `mutation createLocationMutation($name: String!, $lat: Float, $lng: Float) {
+    createLocation(name: $name, lat: $lat, lng: $lng) {
+      name, lat, lng
     }
   }`
 
-  const graphcool = fromEvent(event)
-  const api = graphcool.api('simple/v1')
+  const vars = { name, lat, lng, }
 
-  let results = await new Promise((resolve, reject) => {
-    api
-      .request(query)
-      .then(res => {
-        resolve(res)
-      })
-      .catch(err => {
-        reject(err)
-      })
-  })
+  try {
+    const graphcool = fromEvent(event)
+    const api = graphcool.api('simple/v1')
 
-  return {
-    data: {
-      name: results.createLocation.name,
-    },
+    let results = await new Promise((resolve, reject) => {
+      api
+        .request(query, vars)
+        .then(res => {
+          resolve(res)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+
+    return {
+      data: results.createLocation,
+    }
+  } catch (err) {
+    console.log('Error in resolver ' + err)
+    return { error: 'Error in resolver ' + err, }
   }
 }
