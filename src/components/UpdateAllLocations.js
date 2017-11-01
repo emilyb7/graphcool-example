@@ -9,8 +9,8 @@ class UpdateAllLocations extends React.Component {
 
   async updateAllLocations() {
     try {
-      await this.props.mutate()
-      console.log('done')
+      let res = await this.props.mutate()
+      console.log('done', res)
     } catch (err) {
       console.log(err)
     }
