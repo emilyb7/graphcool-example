@@ -1,0 +1,8 @@
+type updateAllLocationsPayload {
+  id: ID!
+  name: String
+}
+
+extend type Mutation {
+  updateAllLocations(name: String!): updateAllLocationsPayload
+}

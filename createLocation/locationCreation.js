@@ -8,7 +8,7 @@ export default async event => {
     .split(/[@,]/g)
     .slice(1, 3)
     .map(Number)
-  // you can use ES7 with async/await and even TypeScript in your functions :)
+
   const query = `mutation createLocationMutation($name: String!, $lat: Float, $lng: Float) {
     createLocation(name: $name, lat: $lat, lng: $lng) {
       name, lat, lng
