@@ -26,3 +26,4 @@ functions:
 permissions:
 - operation: Location.read
 - operation: Location.create
+- operation: Location.delete
