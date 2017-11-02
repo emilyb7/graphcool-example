@@ -1,5 +1,6 @@
 type updateAllLocationsPayload {
   id: ID!
+  count: Int
   name: String
 }
 

@@ -1,0 +1,5 @@
+mutation createLocationMutation($name: String!, $lat: Float, $lng: Float) {
+  createLocation(name: $name, lat: $lat, lng: $lng) {
+    name, lat, lng
+  }
+}

@@ -28,7 +28,7 @@ class UpdateAllLocations extends React.Component {
 const updateAllLocationsQuery = gql`
   mutation updateAllLocations {
     updateAllLocations(name: "emily") {
-      name
+      count
     }
   }
 `

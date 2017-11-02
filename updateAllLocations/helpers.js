@@ -1,11 +1,10 @@
 export const createLocationWithApi = api => data => {
   const { name, coordinates: [ lat, lng, ], } = data
 
-  const query = `mutation createLocationMutation($name: String!, $lat: Float, $lng: Float) {
-    createLocation(name: $name, lat: $lat, lng: $lng) {
-      name, lat, lng
-    }
-  }`
+  const query = require('fs').readFileSync(
+    require('path').join(__dirname, 'createLocationMutation.graphql'),
+    'utf8'
+  )
 
   const vars = { name, lat, lng, }
 
@@ -13,17 +12,15 @@ export const createLocationWithApi = api => data => {
     api
       .request(query, vars)
       .then(res => {
-        console.log('location created - ', name)
         resolve(res)
       })
       .catch(err => {
-        console.log('error creating location' + err)
         reject(err)
       })
   })
 }
 
-export const getCoordinates = url => {
+const getCoordinates = url => {
   const coordsRegex = /@-?[\d.]+,-?[\d.]+/
   const separator = /[@,]/
   return url
@@ -33,13 +30,11 @@ export const getCoordinates = url => {
     .map(Number)
 }
 
-export const parseData = data => {
-  return {
-    id: data.id,
-    name: data.Name,
-    description: data.Description,
-    rating: data.Rating,
-    link: data.Link,
-    coordinates: getCoordinates(data.Link),
-  }
-}
+export const parseData = data => ({
+  id: data.id,
+  name: data.Name,
+  description: data.Description,
+  rating: data.Rating,
+  link: data.Link,
+  coordinates: getCoordinates(data.Link),
+})
