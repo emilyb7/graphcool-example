@@ -1,0 +1,23 @@
+{
+  "name": "apollo-demo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-apollo": "^1.2.0",
+    "react-dom": "^15.3.1",
+    "react-modal": "^1.6.5",
+    "react-router-dom": "^4.0.0",
+    "tachyons": "^4.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "prettier": "prettier-eslint --write \"src/**/*.+(js|jsx)\"",
+    "prettier-dry-run": "prettier-eslint \"src/**/*.+(js|jsx)\" -l debug"
+  },
+  "author": "emilyb7",
+  "license": "ISC"
+}
