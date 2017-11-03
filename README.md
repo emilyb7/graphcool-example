@@ -28,3 +28,12 @@ With docker:
 `graphcool local up` starts the server
 
 `graphcool deploy --target dev` to deploy
+
+
+### What happens...
+
+At `/update` we fetch data from an existing list of locations
+
+Locations are validated and the database is populated
+
+View list at `/`
