@@ -9,17 +9,17 @@ functions:
     handler:
       # Specify a managed function as a handler
       code:
-        src: './createLocation/locationCreation.js'
+        src: './services/createLocation/locationCreation.js'
         # Define environment variables to be used in function
-    schema: './createLocation/locationCreation.graphql'
+    schema: './services/createLocation/locationCreation.graphql'
     type: resolver
 
   # update all locations resolver
   updateAllLocations:
     handler:
       code:
-        src: './updateAllLocations/updateAllLocations.js'
-    schema: './updateAllLocations/updateAllLocations.graphql'
+        src: './services/updateAllLocations/updateAllLocations.js'
+    schema: './services/updateAllLocations/updateAllLocations.graphql'
     type: resolver
 
 # permissions
