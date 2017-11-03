@@ -29,6 +29,7 @@ const updateAllLocationsQuery = gql`
   mutation updateAllLocations {
     updateAllLocations(name: "emily") {
       count
+      errors
     }
   }
 `

@@ -8,6 +8,7 @@ export const queryFromFile = async (api, query, vars) => {
         if (err) {
           reject('error reading file', err)
         }
+
         try {
           let res = await api.request(query.toString(), vars)
           resolve(res)
@@ -51,10 +52,6 @@ const getCoordinates = url => {
 }
 
 export const parseData = data => ({
-  id: data.id,
   name: data.Name,
-  description: data.Description,
-  rating: data.Rating,
-  link: data.Link,
   coordinates: getCoordinates(data.Link),
 })

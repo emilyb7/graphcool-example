@@ -1,7 +1,7 @@
 type updateAllLocationsPayload {
   id: ID!
   count: Int
-  name: String
+  errors: [String]
 }
 
 extend type Mutation {

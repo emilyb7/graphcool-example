@@ -17,6 +17,7 @@
   "dependencies": {
     "graphcool-lib": "^0.1.4",
     "graphql-request": "^1.4.0",
+    "joi": "^13.0.1",
     "react": "^15.4.2",
     "react-apollo": "^1.2.0",
     "react-dom": "^15.3.1",
